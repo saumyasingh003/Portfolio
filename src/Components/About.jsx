@@ -82,7 +82,7 @@ const About = () => {
               <img
                 src={aiimage}
                 alt="circle-img"
-                className="md:w-96 md:h-96rt h-32 w-32 object-cover rounded-full"
+                className="md:w-96 md:h-96  h-32 w-32 object-cover rounded-full"
               />
             </div>
 
@@ -99,7 +99,7 @@ const About = () => {
                 expertise, I am driven by a love for learning new technologies
                 that elevate my craft.
               </p>
-              <div className="flex space-x-4 mt-4 text-center">
+              <div className="flex space-x-4 mt-4 text-center"> 
                 <a
                   href="https://www.linkedin.com/in/saumyasingh003/"
                   target="_blank"
