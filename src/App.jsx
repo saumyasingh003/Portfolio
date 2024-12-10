@@ -1,3 +1,4 @@
+import React from 'react'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Spinner } from "./Components/ui/Spinner";
