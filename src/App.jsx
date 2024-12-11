@@ -21,7 +21,7 @@ function App() {
         <BrowserRouter>
           <Suspense fallback={<Spinner />}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/Portfolio/" element={<Home />} />
             </Routes>
           </Suspense>
         </BrowserRouter>
