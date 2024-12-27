@@ -1,11 +1,11 @@
 import React from "react";
 import airbnb from "../Components/assets/airbnb.png";
-import indiaTours from "../Components/assets/indiatours.png";
+import sortingV from "../Components/assets/sortingV.png";
 import medico from "../Components/assets/medico.png";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 const Projects = () => {
   return (
-    <div className="mb-40">
+    <div className="">
       <div
         id="projects"
         className="relative md:w-screen h-full bg-white flex flex-col justify-center md:items-center p-4 md:ml-10 "
@@ -27,7 +27,7 @@ const Projects = () => {
 
         {/* Project Cards Container */}
         <div className="">
-          <div className=" flex md:flex-row flex-col justify-center md:gap-20 gap-10  mb-10 m-auto md:mr-20">
+          <div className=" flex md:flex-row flex-col justify-center md:gap-20 gap-10 m-auto md:mr-20">
             <CardContainer className="inter-var">
               <CardBody className="md:w-96  h-full rounded md:overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl p-6 flex flex-col">
                
@@ -37,15 +37,15 @@ const Projects = () => {
                   className="px-6 py-4 flex flex-col flex-grow"
                 >
                   <a
-                    href="https://india-tours.vercel.app"
+                    href="https://sorting-visualizer-liard-pi.vercel.app/"
                     target="_blank"
                     className="font-bold text-xl mb-2 text-black"
                   >
-                    IndiaTours!
+                    Sorting Visualizer
                   </a>
                   <p className="text-gray-700 text-base flex-grow">
-                    React-driven animations designed to create a dynamic and
-                    engaging travel experience across whole India.
+                    React-driven animations Sorting Visualizer to visualize performance of sorting algorithm.
+                  
                   </p>
                 </CardItem>
                 <CardItem
@@ -56,7 +56,7 @@ const Projects = () => {
                 >
                   <img
                     className="w-full h-[32vh] object-fit rounded-lg  hover:shadow-xl"
-                    src={indiaTours}
+                    src={sortingV}
                     alt="India Tours"
                   />
                 </CardItem>
@@ -67,18 +67,18 @@ const Projects = () => {
                     as="button"
                     className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-gray-900 hover:text-white transition duration-300"
                   >
-                    #diversity
+                    #Bubble 
                   </CardItem>
                   <CardItem
                    
                     as="button" className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-gray-900 hover:text-white transition duration-300">
-                    #culture
+                    #Quick 
                   </CardItem>
                   <CardItem
                     translateZ={20}
                     translateX={40}
                     as="button" className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-gray-900 hover:text-white transition duration-300">
-                    #adventure
+                    #Merge 
                   </CardItem>
                 </div>
               </CardBody>
@@ -92,7 +92,7 @@ const Projects = () => {
                   className="px-6 py-4 flex flex-col flex-grow"
                 >
                   <a
-                    href="https://india-tours.vercel.app"
+                    href="https://airbnb-5e78.onrender.com/listings"
                     target="_blank"
                     className="font-bold text-xl mb-2 text-black"
                   >
@@ -146,7 +146,7 @@ const Projects = () => {
                   className="px-6 py-4 flex flex-col flex-grow"
                 >
                   <a
-                    href="https://india-tours.vercel.app"
+                    href="https://medico-sam.vercel.app/"
                     target="_blank"
                     className="font-bold text-xl mb-2 text-black"
                   >

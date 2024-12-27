@@ -20,6 +20,7 @@ const Experience = () => {
             <div className="w-1/4 h-1 bg-gray-900 mt-2"></div>
           </div>
         </div>
+        
 
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10 ">
           <div className="w-full mt-16  mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
@@ -38,7 +39,7 @@ const Experience = () => {
               <h6 className="text-xl text-gray-500 mb-4">
                 Sep 2024 - Oct 2024
               </h6>
-              <ul className="text-gray-600 space-y-2 text-left ml-5  text-xl">
+              <ul className="text-gray-600 space-y-2 text-left ml-5  text-sm">
                 <li>
                   ● Integrated APIs with the frontend, improving technical
                   skills and ensuring seamless functionality
@@ -70,7 +71,7 @@ const Experience = () => {
               <h6 className="text-xl text-gray-500 mb-4">
                 May 2024 - Aug 2024
               </h6>
-              <ul className="text-gray-600 space-y-2 text-left ml-5  text-xl">
+              <ul className="text-gray-600 space-y-2 text-left ml-5  text-sm">
                 <li>
                   ● Developed and implemented various front-end pages, ensuring
                   responsive design and user-friendly interfaces.
@@ -86,7 +87,8 @@ const Experience = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full mb-10 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+          </div>
+          <div className="grid w-[44rem] mt-10  bg-white shadow-lg rounded-lg overflow-hidden  ">
             <div className="bg-teal-800 h-40 relative flex justify-center items-center">
               <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-teal-600"></div>
               <h5 className="text-white text-xl font-semibold z-10 text-center">
@@ -94,7 +96,7 @@ const Experience = () => {
               </h5>
               <img
                 src={iit}
-                alt="D.E. Shaw & Co."
+                alt="iit patna"
                 className="absolute bottom-0 transform translate-y-1/2 rounded-full w-24 h-24 border-4 border-white object-cover"
               />
             </div>
@@ -102,7 +104,7 @@ const Experience = () => {
               <h6 className="text-xl text-gray-500 mb-4">
                 March 2024 - June 2024
               </h6>
-              <ul className="text-gray-600 space-y-2  text-left ml-6 text-xl">
+              <ul className="text-gray-600 space-y-2  text-left ml-6 text-sm">
                 <li>
                   ● Implemented diverse ML algorithms (e.g., linear regression,
                   logistic regression, K-fold cross-validation) on varied
@@ -121,7 +123,7 @@ const Experience = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
