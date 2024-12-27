@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./Components/Home";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +12,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
+  return ( 
     <>
    
       <BrowserRouter>

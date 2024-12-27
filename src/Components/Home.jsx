@@ -102,7 +102,7 @@ const Home = () => {
                     Contact Me
                   </a>
                   <a
-                    href="https://drive.google.com/file/d/1zzzU-c37ptE9RRmqa_9p-yZkSar1qtKM/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1zzzU-c37ptE9RRmqa_9p-yZkSar1qtKM/view?usp=sharing"
                     target="_blank"
                     className="bg-yellow-400 hover:text-black text-gray-900 font-bold md:py-5 h-fit py-2 flex items-center  md:px-10 px-6 rounded-2xl md:rounded-full"
                   >
