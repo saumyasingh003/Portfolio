@@ -118,6 +118,7 @@ const About = () => {
         "Tailwind CSS",
         "Bootstrap",
         "Pandas",
+        "Docker"
       ].map((skill, i) => {
         const isBlack = i % 2 === 1;
 
