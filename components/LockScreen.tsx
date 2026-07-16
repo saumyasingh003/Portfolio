@@ -40,6 +40,8 @@ const LockScreen = () => {
       })
     : "";
 
+  const ampm = now ? (now.getHours() >= 12 ? "P M" : "A M") : "";
+
   const handleUnlock = () => setUnlocked(true);
 
   return (
@@ -97,10 +99,15 @@ const LockScreen = () => {
         </p>
 
         <h1
-          className="my-4 text-[28vw] font-medium leading-none tracking-tight tabular-nums md:text-[22rem]"
+          className="my-4 text-[28vw] font-medium leading-none tracking-tight tabular-nums md:text-[22rem] flex items-baseline justify-center"
           style={{ color: "#D1603D" }}
         >
-          {time}
+          <span>{time}</span>
+          {ampm && (
+            <span className="text-[5vw] md:text-[4rem] font-semibold uppercase opacity-75 ml-2 md:ml-4 select-none">
+              {ampm}
+            </span>
+          )}
         </h1>
 
         <h2 className="mt-6 text-3xl sm:text-4xl text-[#B66D0D] font-bold tracking-tight drop-shadow-lg">
