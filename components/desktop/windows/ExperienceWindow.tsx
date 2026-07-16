@@ -73,32 +73,32 @@ const experiences = [
 
 const ExperienceWindow = () => {
   return (
-    <div className="bg-neutral-950 p-6 text-white sm:p-10">
-      <h2 className="accent mb-8 text-3xl font-bold sm:text-4xl">Experience</h2>
+    <div className="bg-neutral-950 p-4 text-white sm:p-10">
+      <h2 className="accent mb-6 text-2xl font-bold sm:text-4xl">Experience</h2>
 
       <div className="space-y-5">
         {experiences.map((e) => (
           <div
             key={e.company}
-            className="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 md:grid-cols-2"
+            className="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6 md:grid-cols-2"
           >
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-3 sm:gap-4">
               {e.logo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={e.logo}
                   alt={`${e.company} logo`}
-                  className="h-16 w-16 shrink-0 rounded-lg object-cover"
+                  className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 rounded-lg object-cover"
                 />
               ) : (
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white/10 text-2xl font-bold text-white/90">
+                <div className="flex h-12 w-12 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xl sm:text-2xl font-bold text-white/90">
                   {e.company.charAt(0)}
                 </div>
               )}
               <div>
-                <h3 className="accent text-xl font-semibold">{e.company}</h3>
-                <p className="mt-1 font-medium text-white/90">{e.role}</p>
-                <p className="text-xs uppercase tracking-widest text-white/50">
+                <h3 className="accent text-lg sm:text-xl font-semibold">{e.company}</h3>
+                <p className="mt-0.5 sm:mt-1 text-sm sm:text-base font-medium text-white/90">{e.role}</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-white/50">
                   {e.period}
                 </p>
               </div>

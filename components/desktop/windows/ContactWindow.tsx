@@ -23,17 +23,17 @@ const socials = [
 
 const ContactWindow = () => {
   return (
-    <div className="bg-neutral-950 p-6 text-white sm:p-10">
-      <h2 className="accent mb-8 text-3xl font-bold sm:text-4xl">Contact Me</h2>
+    <div className="bg-neutral-950 p-4 text-white sm:p-10">
+      <h2 className="accent mb-6 text-2xl font-bold sm:text-4xl">Contact Me</h2>
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-8">
         <p className="mb-6 text-lg text-white/85">
           Want to discuss a project or just say hi? My inbox is always open.
         </p>
 
         <a
           href="mailto:saumyasingh98982@gmail.com"
-          className="accent mb-4 block text-xl font-medium transition hover:opacity-80 sm:text-2xl"
+          className="accent mb-4 block break-all text-lg sm:text-2xl font-medium transition hover:opacity-80"
         >
           saumyasingh98982@gmail.com
         </a>

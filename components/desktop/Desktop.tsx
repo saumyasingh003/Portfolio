@@ -8,6 +8,7 @@ import Dock from "./Dock";
 import Window from "./Window";
 import Gallery from "./Gallery";
 import { WALLPAPERS } from "./wallpapers";
+import VisitorCounter from "../VisitorCounter";
 
 import AboutWindow from "./windows/AboutWindow";
 import SkillsWindow from "./windows/SkillsWindow";
@@ -48,8 +49,13 @@ const Desktop = () => {
       {/* Top menu bar */}
       <MenuBar onOpen={handleOpen} />
 
+      {/* Visitor Counter (Top-Right under MenuBar) */}
+      <div className="absolute top-12 right-8 z-30">
+        <VisitorCounter />
+      </div>
+
       {/* Widgets floating on the desktop */}
-      <div className="relative h-full w-full overflow-y-auto pb-24">
+      <div className="relative h-full w-full overflow-y-auto pb-32 md:pb-24">
         <Widgets />
       </div>
 

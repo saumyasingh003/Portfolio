@@ -11,6 +11,7 @@ type WindowProps = {
 
 const Window = ({ title, accent = "#e5e7eb", onClose, children }: WindowProps) => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const drag = useRef<{ startX: number; startY: number; ox: number; oy: number } | null>(null);
 
   // Close on Escape
@@ -21,6 +22,13 @@ const Window = ({ title, accent = "#e5e7eb", onClose, children }: WindowProps) =
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -40,6 +48,7 @@ const Window = ({ title, accent = "#e5e7eb", onClose, children }: WindowProps) =
   }, []);
 
   const startDrag = (e: React.MouseEvent) => {
+    if (isMobile) return;
     drag.current = { startX: e.clientX, startY: e.clientY, ox: pos.x, oy: pos.y };
   };
 
@@ -55,16 +64,18 @@ const Window = ({ title, accent = "#e5e7eb", onClose, children }: WindowProps) =
       <div
         style={
           {
-            transform: `translate(${pos.x}px, ${pos.y}px)`,
+            transform: isMobile ? undefined : `translate(${pos.x}px, ${pos.y}px)`,
             "--win-accent": accent,
           } as React.CSSProperties
         }
-        className="relative flex max-h-[85vh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-950 shadow-2xl"
+        className="relative flex h-[80vh] md:h-auto md:max-h-[85vh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-950 shadow-2xl"
       >
         {/* Title bar */}
         <div
-          onMouseDown={startDrag}
-          className="flex h-11 shrink-0 cursor-grab items-center gap-2 border-b border-white/10 bg-neutral-900 px-4 active:cursor-grabbing"
+          onMouseDown={isMobile ? undefined : startDrag}
+          className={`flex h-11 shrink-0 items-center gap-2 border-b border-white/10 bg-neutral-900 px-4 ${
+            isMobile ? "" : "cursor-grab active:cursor-grabbing"
+          }`}
         >
           <div className="flex items-center gap-2">
             <button

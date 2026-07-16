@@ -31,17 +31,15 @@ const projects = [
 
 const ProjectsWindow = () => {
   return (
-    <div className="bg-neutral-950 p-6 text-white sm:p-10">
-      <h2 className="accent mb-1 text-3xl font-bold sm:text-4xl">Projects</h2>
-      <p className="mb-8 italic text-white/60">Some of my personal projects</p>
+    <div className="bg-neutral-950 p-4 text-white sm:p-10">
+      <h2 className="accent mb-1 text-2xl font-bold sm:text-4xl">Projects</h2>
+      <p className="mb-6 italic text-white/60">Some of my personal projects</p>
 
-  
-
-      <div className="grid grid-cols-1 gap-5">
+      <div className="flex flex-col gap-5">
         {projects.map((p) => (
           <div
             key={p.title}
-            className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
+            className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6 transition hover:bg-white/10"
           >
             <h3 className="accent mb-2 text-xl font-semibold">{p.title}</h3>
             <p className="mb-5 flex-1 text-sm leading-relaxed text-white/70">

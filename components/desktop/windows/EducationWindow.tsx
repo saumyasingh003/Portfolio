@@ -11,10 +11,10 @@ const points = [
 
 const EducationWindow = () => {
   return (
-    <div className="bg-neutral-950 p-6 text-white sm:p-10">
-      <h2 className="accent mb-8 text-3xl font-bold sm:text-4xl">Education</h2>
+    <div className="bg-neutral-950 p-4 text-white sm:p-10">
+      <h2 className="accent mb-6 text-2xl font-bold sm:text-4xl">Education</h2>
 
-      <div className="grid gap-8 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 md:grid-cols-2">
+      <div className="grid gap-8 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-8 md:grid-cols-2">
         <div>
           <h3 className="accent mb-2 text-2xl font-semibold">Amity University, Patna</h3>
           <p className="font-medium text-white/90">

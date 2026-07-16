@@ -78,19 +78,19 @@ const LockScreen = () => {
 
       {/* Status bar */}
       <div
-        className="absolute top-3 right-4 z-20 flex items-center gap-2 text-sm font-semibold sm:top-4 sm:right-6"
+        className="absolute top-3 right-4 z-20 flex items-center gap-1.5 text-xs font-semibold sm:top-4 sm:right-6 sm:text-sm"
         style={{ color: "#D1603D" }}
       >
         <span>India</span>
-        <IoWifi className="text-base" />
+        <IoWifi className="text-sm sm:text-base" />
         <span>91%</span>
-        <BsBatteryFull className="text-2xl" />
+        <BsBatteryFull className="text-xl sm:text-2xl" />
       </div>
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <p
-          className="text-2xl font-semibold tracking-wide md:text-3xl"
+          className="text-xl font-semibold tracking-wide sm:text-2xl md:text-3xl"
           style={{ color: "#D1603D" }}
         >
           {date}
@@ -103,7 +103,7 @@ const LockScreen = () => {
           {time}
         </h1>
 
-        <h2 className="mt-8 text-4xl text-[#B66D0D] font-bold tracking-tight drop-shadow-lg md:text-4xl">
+        <h2 className="mt-6 text-3xl sm:text-4xl text-[#B66D0D] font-bold tracking-tight drop-shadow-lg">
           Saumya&rsquo;s Portfolio
         </h2>
 

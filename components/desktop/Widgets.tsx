@@ -29,7 +29,7 @@ const Widgets = () => {
       {/* Top row: profile + what I'm doing */}
       <div className="flex flex-col gap-5 sm:flex-row">
         {/* Profile card */}
-        <div className="relative aspect-square w-full max-w-[220px] overflow-hidden rounded-3xl border border-white/15 shadow-2xl sm:w-56">
+        <div className="relative aspect-square w-full max-w-[220px] overflow-hidden rounded-3xl border border-white/15 shadow-2xl sm:w-56 mx-auto sm:mx-0">
           <Image src={mainimage} alt="Saumya Singh" fill className="object-cover" />
         </div>
 

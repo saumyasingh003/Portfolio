@@ -50,65 +50,131 @@ const iconClass =
   "flex h-16 w-16 items-center justify-center rounded-2xl shadow-md transition hover:-translate-y-1";
 
 const Dock = ({ onOpen, onOpenGallery }: DockProps) => {
+  // Mobile utility class for icon-only button style
+  const mobIconClass =
+    "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white transition hover:-translate-y-1 hover:bg-white/20 cursor-pointer";
+
   return (
-    <div className="fixed bottom-0 left-0 z-40 flex w-full items-center justify-between gap-3 overflow-x-auto pb-2 pl-2 pr-8">
-      {/* Left tray — section pills */}
-      <div className={trayClass}>
-        {leftSections.map((s) => (
+    <>
+      {/* Desktop Dock (hidden on mobile, flex on md and up) */}
+      <div className="hidden md:flex fixed bottom-0 left-0 z-40 w-full items-center justify-between gap-3 overflow-x-auto pb-2 pl-2 pr-8">
+        {/* Left tray — section pills */}
+        <div className={trayClass}>
+          {leftSections.map((s) => (
+            <button
+              key={s.id}
+              onClick={() =>
+                s.id === "resume" ? window.open(RESUME_URL, "_blank") : onOpen(s.id)
+              }
+              className={pillClass}
+              title={s.label}
+            >
+              <s.icon className="text-2xl" />
+              <span className="hidden text-lg font-medium md:inline">{s.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Center tray — app icons */}
+        <div className={trayClass}>
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={s.label}
+              className={`${iconClass} ${s.color}`}
+            >
+              <s.icon className="text-3xl" />
+            </a>
+          ))}
+
+          {/* Gallery — change wallpaper (Photos-style icon) */}
           <button
-            key={s.id}
-            onClick={() =>
-              s.id === "resume" ? window.open(RESUME_URL, "_blank") : onOpen(s.id)
-            }
-            className={pillClass}
-            title={s.label}
+            onClick={onOpenGallery}
+            title="Gallery — change background"
+            className={`${iconClass} bg-linear-to-tr from-sky-400 via-fuchsia-400 to-amber-300 text-white`}
           >
-            <s.icon className="text-2xl" />
-            <span className="hidden text-lg font-medium md:inline">{s.label}</span>
+            <LuImage className="text-3xl" />
           </button>
-        ))}
+        </div>
+
+        {/* Right tray — section pills */}
+        <div className={trayClass}>
+          {rightSections.map((s) => (
+            <button
+              key={s.id}
+              onClick={() => onOpen(s.id)}
+              className={pillClass}
+              title={s.label}
+            >
+              <s.icon className="text-2xl" />
+              <span className="hidden text-lg font-medium md:inline">{s.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Center tray — app icons */}
-      <div className={trayClass}>
-        {socials.map((s) => (
-          <a
-            key={s.label}
-            href={s.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={s.label}
-            className={`${iconClass} ${s.color}`}
-          >
-            <s.icon className="text-3xl" />
-          </a>
-        ))}
+      {/* Mobile Unified Dock (flex on mobile, hidden on md and up) */}
+      <div className="flex md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-full max-w-[95%] justify-center px-2">
+        <div className="flex items-center gap-2 rounded-2xl bg-white/10 p-2 shadow-lg ring-1 ring-white/10 backdrop-blur-xl max-w-full overflow-x-auto no-scrollbar scroll-smooth">
+          {/* Left sections (About, Projects, Resume) */}
+          {leftSections.map((s) => (
+            <button
+              key={`${s.id}-mob`}
+              onClick={() =>
+                s.id === "resume" ? window.open(RESUME_URL, "_blank") : onOpen(s.id)
+              }
+              className={mobIconClass}
+              title={s.label}
+            >
+              <s.icon className="text-xl" />
+            </button>
+          ))}
 
-        {/* Gallery — change wallpaper (Photos-style icon) */}
-        <button
-          onClick={onOpenGallery}
-          title="Gallery — change background"
-          className={`${iconClass} bg-linear-to-tr from-sky-400 via-fuchsia-400 to-amber-300 text-white`}
-        >
-          <LuImage className="text-3xl" />
-        </button>
-      </div>
+          {/* Divider */}
+          <div className="h-6 w-[1px] bg-white/20 shrink-0" />
 
-      {/* Right tray — section pills */}
-      <div className={trayClass}>
-        {rightSections.map((s) => (
+          {/* Center sections (Socials + Gallery) */}
+          {socials.map((s) => (
+            <a
+              key={`${s.label}-mob`}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={s.label}
+              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition hover:-translate-y-1 shadow-md cursor-pointer ${s.color}`}
+            >
+              <s.icon className="text-xl" />
+            </a>
+          ))}
+
           <button
-            key={s.id}
-            onClick={() => onOpen(s.id)}
-            className={pillClass}
-            title={s.label}
+            onClick={onOpenGallery}
+            title="Gallery — change background"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-linear-to-tr from-sky-400 via-fuchsia-400 to-amber-300 text-white transition hover:-translate-y-1 shadow-md cursor-pointer"
           >
-            <s.icon className="text-2xl" />
-            <span className="hidden text-lg font-medium md:inline">{s.label}</span>
+            <LuImage className="text-xl" />
           </button>
-        ))}
+
+          {/* Divider */}
+          <div className="h-6 w-[1px] bg-white/20 shrink-0" />
+
+          {/* Right sections (Experience, Skills, Contact) */}
+          {rightSections.map((s) => (
+            <button
+              key={`${s.id}-mob`}
+              onClick={() => onOpen(s.id)}
+              className={mobIconClass}
+              title={s.label}
+            >
+              <s.icon className="text-xl" />
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
