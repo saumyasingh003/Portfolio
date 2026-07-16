@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import { LuUsers } from "react-icons/lu";
 
 const API_NAMESPACE = "saumyasingh_visits_v5";
-const API_KEY = "visits";
-const FALLBACK_KEY = "saumya_portfolio_fallback_visits_v2";
-const SESSION_KEY = "saumya_portfolio_session_visited_v2";
+const API_KEY = "unique_visitors";
+const FALLBACK_KEY = "saumya_portfolio_fallback_unique_visitors";
+const VISITED_KEY = "saumya_portfolio_visited_unique";
 
 const VisitorCounter = () => {
   const [count, setCount] = useState<number | null>(null);
@@ -16,8 +16,8 @@ const VisitorCounter = () => {
     let active = true;
 
     const fetchVisitorCount = async () => {
-      const isSessionVisited = sessionStorage.getItem(SESSION_KEY);
-      const url = isSessionVisited
+      const isVisited = localStorage.getItem(VISITED_KEY);
+      const url = isVisited
         ? `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}`
         : `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}/increment`;
 
@@ -30,8 +30,8 @@ const VisitorCounter = () => {
           if (active) {
             setCount(data.value);
             setIsLive(true);
-            if (!isSessionVisited) {
-              sessionStorage.setItem(SESSION_KEY, "true");
+            if (!isVisited) {
+              localStorage.setItem(VISITED_KEY, "true");
             }
           }
           return;
@@ -48,10 +48,10 @@ const VisitorCounter = () => {
           localCount = 0;
         }
 
-        if (!isSessionVisited) {
+        if (!isVisited) {
           localCount += 1;
           localStorage.setItem(FALLBACK_KEY, String(localCount));
-          sessionStorage.setItem(SESSION_KEY, "true");
+          localStorage.setItem(VISITED_KEY, "true");
         } else if (localCount === 0) {
           localCount = 1;
         }
@@ -83,7 +83,7 @@ const VisitorCounter = () => {
       
       {/* Label */}
       <span className="text-[10px] font-bold uppercase tracking-widest text-[#B66D0D] shrink-0">
-        Visits:
+        Visitors:
       </span>
 
       {/* Glow Count Number */}
