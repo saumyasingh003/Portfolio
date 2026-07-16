@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { LuUsers } from "react-icons/lu";
 
-const API_NAMESPACE = "saumyasingh_visits_v5";
-const API_KEY = "unique_visitors";
 const FALLBACK_KEY = "saumya_portfolio_fallback_unique_visitors";
 const VISITED_KEY = "saumya_portfolio_visited_unique";
 
@@ -16,23 +14,15 @@ const VisitorCounter = () => {
     let active = true;
 
     const fetchVisitorCount = async () => {
-      const isVisited = localStorage.getItem(VISITED_KEY);
-      const url = isVisited
-        ? `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}`
-        : `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}/increment`;
-
       try {
-        const res = await fetch(url);
+        const res = await fetch("/api/visitors");
         if (!res.ok) throw new Error("API response error");
         const data = await res.json();
         
-        if (data && typeof data.value === "number") {
+        if (data && typeof data.count === "number") {
           if (active) {
-            setCount(data.value);
+            setCount(data.count);
             setIsLive(true);
-            if (!isVisited) {
-              localStorage.setItem(VISITED_KEY, "true");
-            }
           }
           return;
         }
@@ -42,6 +32,7 @@ const VisitorCounter = () => {
 
       // Fallback: If API fails, simulate a realistic visitor counter using localStorage
       if (active) {
+        const isVisited = localStorage.getItem(VISITED_KEY);
         let localCount = parseInt(localStorage.getItem(FALLBACK_KEY) || "0", 10);
         if (!localCount || isNaN(localCount)) {
           // Initialize with 1 as the first visit
