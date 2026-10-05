@@ -6,7 +6,7 @@ import { IoWifi, IoSearch, IoBatteryFull } from "react-icons/io5";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1jmq7V-VeSHqVSAosqaSeqNjvxpw_D5j7/view?usp=sharing";
+  "https://drive.google.com/file/d/1FwMZfUSNC7wOn6XdZqnQBjyKwTHLPRDj/view?usp=sharing";
 
 type MenuBarProps = {
   onOpen: (id: string) => void;
