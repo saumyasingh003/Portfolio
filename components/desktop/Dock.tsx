@@ -19,7 +19,7 @@ type DockProps = {
 };
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1FwMZfUSNC7wOn6XdZqnQBjyKwTHLPRDj/view?usp=sharing";
+  "https://drive.google.com/file/d/1vUOVIVInBla8Aqe3txgKtMKVRwDT5vfJ/view?usp=sharing";
 
 const leftSections = [
   { id: "about", label: "About", icon: LuUser },

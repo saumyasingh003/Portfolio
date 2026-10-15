@@ -6,12 +6,12 @@ const experiences = [
   {
     logo: "/diarch_go_logo.jpg",
     company: "Diarch Go",
-    role: "Full Stack Developer · Internship",
-    period: "Jun 2026 – Present · Patna, Bihar, India · On-site",
+    role: "Frontend Developer · Internship",
+    period: "Jun 2026 – Oct 2026 · Patna, Bihar, India · On-site",
     points: [
-      "Enhanced the DiarchGo Admin Panel by improving the user interface and redesigning the search and filtering system, creating a more intuitive and efficient experience for administrators.",
-      "Designed and developed the complete frontend for GrihBandhu, an end-to-end house construction platform, delivering a responsive and user-friendly interface that simplifies the customer journey.",
-      "Worked with the MERN Stack and Next.js to build scalable, production-ready features.",
+      "Developed responsive frontend modules for GrihBandhu, an end-to-end house construction platform, using Next.js, TypeScript, and REST APIs across customer dashboards, project tracking, and 7 role-based portals.",
+      "Implemented secure JWT authentication, Role-Based Access Control (RBAC), and granular permission-based access to protect routes and restrict project features based on user roles and project status.",
+      "Redesigned admin panel search and filtering workflows across two core workflows, improving navigation and data discovery while reducing redundant component re-renders.",
     ],
   },
   {
