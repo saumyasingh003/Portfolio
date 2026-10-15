@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-const API_NAMESPACE = "saumyasingh_visits_v5";
-const API_KEY = "unique_visitors";
+// counterapi.dev v1 was shut down (returns 410), so we use Abacus — free, no API key.
+const API_BASE = "https://abacus.jasoncameron.dev";
+const API_NAMESPACE = "saumyasingh-portfolio";
+const API_KEY = "unique-visitors";
 
 export async function GET() {
   try {
@@ -10,18 +12,23 @@ export async function GET() {
     const hasVisited = cookieStore.get("saumya_portfolio_visited_unique");
 
     const url = hasVisited
-      ? `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}`
-      : `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}/up`;
+      ? `${API_BASE}/get/${API_NAMESPACE}/${API_KEY}`
+      : `${API_BASE}/hit/${API_NAMESPACE}/${API_KEY}`;
 
     const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) {
-      throw new Error(`API returned status ${res.status}`);
-    }
-    const data = await res.json();
 
-    const response = NextResponse.json({
-      count: data.count,
-    });
+    let count: number;
+    if (res.status === 404 && hasVisited) {
+      // Counter has not been created yet (no first-time hit so far).
+      count = 0;
+    } else if (!res.ok) {
+      throw new Error(`API returned status ${res.status}`);
+    } else {
+      const data = await res.json();
+      count = data.value;
+    }
+
+    const response = NextResponse.json({ count });
 
     if (!hasVisited) {
       // Set visited cookie for 1 year
