@@ -4,6 +4,12 @@ import React from "react";
 
 const projects = [
   {
+    title: "Ridezy",
+    desc: "A full-stack ride-hailing platform with secure multi-role authorization, KYC-compliant driver onboarding, and an end-to-end booking workflow covering geospatial driver discovery, route and fare estimation, driver assignment, and ride lifecycle management. It features real-time driver tracking, ETA updates, Socket.IO messaging, ride notifications, payment simulation, ratings, and an admin dashboard for managing users, drivers, rides, and transactions.",
+    link: "https://ridezy-book.vercel.app/",
+    github: "https://github.com/saumyasingh003/ridezy",
+  },
+  {
     title: "Vashudha",
     desc: "An AI-powered sustainability and carbon footprint tracking platform that helps users monitor emissions, adopt eco-friendly habits, and understand climate impact through interactive insights and analytics. It promotes sustainable living with data-driven visualizations, green goals, and awareness-focused features.",
     link: "https://carbon-footprint-tracker-mu.vercel.app/",
